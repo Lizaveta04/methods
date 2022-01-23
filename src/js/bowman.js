@@ -1,10 +1,9 @@
 import Character from './basic';
 
 export default class Bowman extends Character {
-  constructor(name) {
-    super(name);
-    this.type = 'bowman';
+  constructor(name, type) {
+    super(name, type = 'bowman');
     this.attack = 25;
-    this.deffence = 25;
+    this.defence = 25;
   }
 }

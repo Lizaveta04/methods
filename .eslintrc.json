@@ -1,4 +1,5 @@
 {
+  "parser": "@babel/eslint-parser",
   "extends": "airbnb-base",
   "env": {
      "es6": true,
@@ -6,6 +7,8 @@
      "jest": true
   },
   "rules": {
+    "import/no-named-as-default-member": "off",
+    "import/no-named-as-default": "off",
     "max-len": "off",
     "no-param-reassign": "off",
     "no-mixed-spaces-and-tabs": "off",

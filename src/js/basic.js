@@ -1,13 +1,13 @@
 export default class Character {
+  static types = ['bowman', 'swordsman', 'magician', 'daemon', 'undead', 'zombie'];
+
   constructor(name, type) {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Ошибка! Имя персонажа должно быть длиной от 2 до 10 символов!');
     } else {
       this.name = name;
     }
-    if (typeof type !== 'string') {
-      throw new Error('Ошибка! Тип персонажа не может быть числом!');
-    } else if (type !== 'bowman' && type !== 'swordsman' && type !== 'magician' && type !== 'daemon' && type !== 'undead' && type !== 'zombie') {
+    if (!Character.types.includes(type)) {
       throw new Error('Ошибка! Неверный тип персонажа!');
     } else {
       this.type = type;
@@ -28,7 +28,7 @@ export default class Character {
 
   damage(points) {
     if (this.health < 0) {
-      return;
+      throw new Error('Ошибка! Персонаж уже умер!');
     }
     this.health -= points * (1 - this.defence / 100);
   }
